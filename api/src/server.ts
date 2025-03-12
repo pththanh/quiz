@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import dotenv from "dotenv";
 import quizRoutes from "./routes/quiz.routes";
 import questionRoutes from "./routes/question.routes";
@@ -8,6 +9,7 @@ import categoryRoutes from "./routes/category.routes";
 dotenv.config();
 
 const app = express();
+app.use(cors({ credentials: true, origin: true }));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
